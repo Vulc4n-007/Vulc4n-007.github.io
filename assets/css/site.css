@@ -24,6 +24,7 @@
   --veil-rgb: 255, 255, 255;
 
   /* three.js reads these */
+  --nav-h: 68px;
   --scene-node: #0B0D13;
   --scene-accent: #2450F0;
   --scene-line-opacity: 0.14;
@@ -217,7 +218,7 @@ p  { text-wrap: pretty; }
   transition: border-color 400ms var(--ease), box-shadow 400ms var(--ease);
 }
 .nav.is-stuck { border-bottom-color: var(--line); box-shadow: var(--shadow-sm); }
-.nav__in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 68px; }
+.nav__in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: var(--nav-h); }
 .nav__mark { display: flex; align-items: center; gap: 0.625rem; font-weight: 700; letter-spacing: -0.02em; }
 .nav__mark img { width: 26px; height: 26px; border-radius: 7px; }
 .nav__links { display: flex; align-items: center; gap: 0.25rem; }
@@ -248,6 +249,101 @@ p  { text-wrap: pretty; }
 .btn--sm { padding: 0.4375rem 0.875rem; font-size: 0.875rem; }
 
 /* ---------- hero ---------- */
+/* ================= intro curtain =================
+   The name arrives on load, then trades places with the hero as you scroll.
+   It is a real 100svh section with a sticky stage rather than a fixed
+   overlay, so the page is never trapped and nothing has to be un-hidden by a
+   timer: scroll position alone decides how far through the handover we are.
+   --intro-p (0 -> 1) is written by site.js. */
+
+.intro {
+  position: relative; z-index: 2;
+  height: 100vh; height: 100svh;
+  /* the sticky nav still takes its 68px of flow above <main> */
+  margin-top: calc(var(--nav-h) * -1);
+}
+
+.intro__stage {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.75rem; text-align: center;
+  padding-inline: 1.5rem;
+  /* fades out over the first ~72% of the scroll, and drifts up as it goes */
+  opacity: clamp(0, calc(1 - var(--intro-p, 0) / 0.72), 1);
+  transform: translate3d(0, calc(var(--intro-p, 0) * -4.5rem), 0);
+  will-change: opacity, transform;
+}
+
+.intro__name {
+  display: flex; flex-wrap: wrap;
+  align-items: baseline; justify-content: center;
+  gap: 0 0.28em;
+  margin: 0;
+  font-size: clamp(2.75rem, 11vw, 9rem);
+  font-weight: 900; line-height: 0.94;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+/* each word rises out of its own line box, one after the next */
+.intro__w {
+  display: inline-block;
+  animation: intro-word 1100ms var(--ease) both;
+}
+.intro__w:nth-child(1) { animation-delay: 120ms; }
+.intro__w:nth-child(2) { animation-delay: 240ms; }
+.intro__w:nth-child(3) { animation-delay: 360ms; }
+
+@keyframes intro-word {
+  from { opacity: 0; transform: translate3d(0, 0.42em, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+.intro__rule {
+  width: min(360px, 52vw); height: 1px;
+  background: var(--line);
+  margin-top: 1.5rem;
+  transform-origin: 50% 50%;
+  animation: intro-rule 900ms var(--ease) 560ms both;
+}
+@keyframes intro-rule { from { transform: scaleX(0); } to { transform: none; } }
+
+.intro__sub {
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+  font-weight: 500; letter-spacing: 0.02em;
+  color: var(--muted);
+  animation: intro-fade 900ms var(--ease) 700ms both;
+}
+
+.intro__hint {
+  position: absolute; bottom: clamp(1.75rem, 5vh, 3rem);
+  display: inline-flex; align-items: center; gap: 0.4375rem;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+  animation: intro-fade 900ms var(--ease) 1000ms both;
+}
+.intro__hint i { animation: intro-nudge 2.4s var(--ease) infinite; }
+
+@keyframes intro-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes intro-nudge {
+  0%, 100% { transform: none; }
+  50%      { transform: translateY(4px); }
+}
+
+/* the nav would otherwise sit over the curtain repeating the same name */
+.nav { transition: border-color 400ms var(--ease), box-shadow 400ms var(--ease), opacity 500ms var(--ease); }
+.nav.is-veiled { opacity: 0; pointer-events: none; }
+/* a keyboard user tabbing in must not land on something invisible */
+.nav.is-veiled:focus-within { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__w, .intro__rule, .intro__sub, .intro__hint, .intro__hint i { animation: none; }
+  .intro__stage { transform: none; }
+}
+
 .hero { position: relative; z-index: 1; padding-block: clamp(3.5rem, 8vw, 6rem) clamp(4rem, 8vw, 7rem); overflow: hidden; }
 .hero__in { position: relative; z-index: 2; }
 

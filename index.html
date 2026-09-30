@@ -41,7 +41,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/css/site.css?v=30" rel="stylesheet">
+  <link href="assets/css/site.css?v=33" rel="stylesheet">
 
   <script type="importmap">
   { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
@@ -97,13 +97,30 @@
 
   <main id="main">
 
+    <!-- ===== intro curtain =====
+         A real 100svh section, not an overlay: the stage sticks to the top,
+         fades out as you scroll through it, and hands the viewport to the
+         hero underneath. No timers, no scroll-jacking, no trapped page. -->
+    <section class="intro" aria-hidden="true">
+      <div class="intro__stage">
+        <p class="intro__name">
+          <span class="intro__w">Owaiz</span>
+          <span class="intro__w">Mustafa</span>
+          <span class="intro__w">Khan</span>
+        </p>
+        <span class="intro__rule"></span>
+        <span class="intro__sub">Backend Software Engineer</span>
+        <span class="intro__hint"><i class="ri-arrow-down-line" aria-hidden="true"></i> Scroll</span>
+      </div>
+    </section>
+
     <!-- ===== hero ===== -->
     <section class="hero">
 
       <div class="wrap hero__in">
         <span class="avail rv"><span class="avail__dot" aria-hidden="true"></span> Open to backend &amp; platform roles</span>
 
-        <h1 class="rv" data-d="1">I build backend systems that hold up in production.</h1>
+        <h1 class="rv" data-d="1">I build backend systems that hold up in production pressure.</h1>
 
         <p class="hero__role rv" data-d="1">
           <strong>Software Development Engineer 1</strong> at
@@ -411,8 +428,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/site.js?v=26" defer></script>
-  <script type="module" src="assets/js/scene.js?v=15"></script>
+  <script src="assets/js/site.js?v=27" defer></script>
+  <script type="module" src="assets/js/scene.js?v=17"></script>
 </body>
 
 </html>

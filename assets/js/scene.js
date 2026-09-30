@@ -57,7 +57,7 @@ function boot() {
   /* the field has to cover the viewport at z = 0 with room to spare */
   const reach = () => {
     const h = 2 * camera.position.z * Math.tan((camera.fov * Math.PI) / 360);
-    return { h: h * 1.25, w: h * camera.aspect * 1.25 };
+    return { h: h * 1.45, w: h * camera.aspect * 1.45 };
   };
 
   /* ---------- the field ---------- */
@@ -87,7 +87,7 @@ function boot() {
      ones the pointer has thrown read as fatter specks and not just paler ones */
   const dotMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false,
-    uniforms: { uOpacity: { value: 0.8 } },
+    uniforms: { uOpacity: { value: 1.0 } },
     vertexShader: [
       'attribute vec3 vcolor;',
       'attribute float size;',
@@ -95,7 +95,7 @@ function boot() {
       'void main() {',
       '  vC = vcolor;',
       '  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
-      '  gl_PointSize = size * (320.0 / -mv.z);',
+      '  gl_PointSize = max(size * (320.0 / -mv.z), 3.0);',
       '  gl_Position = projectionMatrix * mv;',
       '}'
     ].join('\n'),
@@ -103,7 +103,7 @@ function boot() {
       'uniform float uOpacity;',
       'varying vec3 vC;',
       'void main() {',
-      '  float a = smoothstep(0.5, 0.32, length(gl_PointCoord - vec2(0.5)));',
+      '  float a = smoothstep(0.5, 0.42, length(gl_PointCoord - vec2(0.5)));',
       '  if (a < 0.01) discard;',
       '  gl_FragColor = vec4(vC, a * uOpacity);',
       '}'
@@ -115,7 +115,7 @@ function boot() {
   geo.setAttribute('position', new THREE.BufferAttribute(pts, 3));
   geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
   field.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({
-    vertexColors: true, transparent: true, opacity: 0.8, depthWrite: false
+    vertexColors: true, transparent: true, opacity: 1.0, depthWrite: false
   })));
 
   function seed() {
@@ -124,12 +124,12 @@ function boot() {
       const p = P[i] || (P[i] = {});
       p.bx = (Math.random() - 0.5) * r.w;
       p.by = (Math.random() - 0.5) * r.h;
-      p.z = -14 + Math.random() * 20;
+      p.z = -8 + Math.random() * 14;
       p.x = p.bx; p.y = p.by;
       p.vx = 0; p.vy = 0;
       p.ph = Math.random() * Math.PI * 2;
-      p.dim = 0.32 + Math.random() * 0.68;   /* resting brightness */
-      p.sz = 0.085 + Math.random() * 0.06;
+      p.dim = 0.72 + Math.random() * 0.28;   /* resting brightness */
+      p.sz = 0.36 + Math.random() * 0.17;
     }
   }
 
@@ -208,7 +208,7 @@ function boot() {
           const d = Math.sqrt(d2) || 0.0001;
           /* nearer points are thrown harder, and nearer the camera harder still */
           const f = (1 - d / RADIUS);
-          const g = PUSH * f * f * (1 + (p.z + 14) / 34) * step;
+          const g = PUSH * f * f * (1 + (p.z + 8) / 24) * step;
           p.vx += (dx / d) * g;
           p.vy += (dy / d) * g;
         }
@@ -238,7 +238,7 @@ function boot() {
       col[a] = cr; col[a + 1] = cg; col[a + 2] = cb;
       col[a + 3] = cr; col[a + 4] = cg; col[a + 5] = cb;
       hcol[h] = cr; hcol[h + 1] = cg; hcol[h + 2] = cb;
-      hsize[i] = p.sz * (1 + k * 2.4);
+      hsize[i] = p.sz * (1 + k * 1.15);
     }
 
     geo.attributes.position.needsUpdate = true;

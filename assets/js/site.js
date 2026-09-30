@@ -142,6 +142,36 @@
     });
   });
 
+  /* ---------- intro curtain ----------
+     Scroll position is the only input. Progress runs 0 -> 1 across the
+     intro section's own height; CSS turns that into opacity and drift, and
+     the nav stays veiled until the handover is mostly done. Because nothing
+     is driven by a timer, a reload part-way down the page, a #hash landing,
+     or restored scroll all resolve to the correct state on the first frame. */
+  var intro = document.querySelector('.intro');
+  if (intro) {
+    var root = document.documentElement;
+    var introH = 0, introQ = false;
+
+    var measure = function () { introH = intro.offsetHeight || window.innerHeight; };
+
+    var paintIntro = function () {
+      introQ = false;
+      var p = introH > 0 ? Math.min(window.scrollY / introH, 1) : 1;
+      root.style.setProperty('--intro-p', p.toFixed(4));
+      /* released a little before the curtain is fully gone, so the nav is
+         already there by the time the hero owns the viewport */
+      if (nav) nav.classList.toggle('is-veiled', p < 0.55);
+    };
+
+    measure();
+    paintIntro();
+    window.addEventListener('scroll', function () {
+      if (!introQ) { introQ = true; requestAnimationFrame(paintIntro); }
+    }, { passive: true });
+    window.addEventListener('resize', function () { measure(); paintIntro(); });
+  }
+
   /* read-progress rail in the nav */
   var prog = document.getElementById('nav-prog');
   if (prog) {
