@@ -1,0 +1,6 @@
+# The resume is served from Google Drive so it can be updated without a
+# commit. Keeping the PDF out of the repo stops a stale copy shipping here.
+assets/Owaiz-Mustafa-Khan-Resume.pdf
+
+# Local design-tooling state, not site content.
+.impeccable/

@@ -3,683 +3,416 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 
-  <title>Portfolio - Owaiz Mustafa Khan</title>
-  <meta content="" name="description">
-  <meta content="HTML,CSS,JAVASCRIPT,html,css,javascript,owaiz mustafa khan,OWAIZ MUSTAFA KHAN,CyKrome,cykrome,web,web developer,nist,full stack,full stack developer,java,java full stack developer,owaiz,khan,portfolio,software engineer,fresher,engineer,computer science" name="keywords">
-  <meta content="Owaiz Mustafa Khan" name="author">
+  <!-- Resolve the theme before first paint so there is no flash. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) { /* private mode / blocked storage: fall back to the system */ }
+    })();
+  </script>
 
-  <!-- Favicons -->
-  <link href="assets/img/CY.png" rel="icon">
-  <link href="assets/img/CY.png" rel="apple-touch-icon">
+  <title>Owaiz Mustafa Khan — Backend Software Engineer</title>
+  <meta name="description" content="Backend Software Engineer at ZöTok.AI with 1+ year building production conversational-commerce and AI voice systems in Node.js, TypeScript, NestJS and FastAPI. Based in Hyderabad, India.">
+  <meta name="author" content="Owaiz Mustafa Khan">
+  <meta name="keywords" content="Owaiz Mustafa Khan,backend engineer,software development engineer,Node.js,TypeScript,NestJS,FastAPI,LiveKit,WebRTC,ActiveMQ,PostgreSQL,MongoDB,Hyderabad">
 
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Owaiz Mustafa Khan — Backend Software Engineer">
+  <meta property="og:description" content="SDE1 at ZöTok.AI. Production AI-agent workflows, message-queue architecture, and real-time voice pipelines.">
+  <meta property="og:url" content="https://vulc4n-007.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://vulc4n-007.github.io/">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="icon" href="assets/img/CY.png">
+  <link rel="apple-touch-icon" href="assets/img/CY.png">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/site.css?v=30" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
+  <script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <span id="top" aria-hidden="true"></span>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+  <!-- ===== nav ===== -->
+  <header class="nav">
+    <div class="wrap nav__in">
+      <a href="#top" class="nav__mark">
+        <img src="assets/img/CY.png" alt="" width="26" height="26">
+        <span>Owaiz Mustafa Khan</span>
+      </a>
 
-      <h1><a href="index.html">Owaiz Mustafa Khan</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a passionate <span>Software Engineer</span> from Berhampur, Odisha</h2>
+      <nav class="nav__links" aria-label="Sections">
+        <a class="nav__link" href="#experience">Experience</a>
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link" href="#background">Background</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-<!--          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>-->
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <div class="social-links">
-        <a href="https://github.com/CyKrome007" class="facebook"><i class="bi bi-github"></i></a>
-        <!--        <a href="https://www.instagram.com/0waiz.khan/" class="instagram"><i class="bi bi-instagram"></i></a>-->
-        <a href="https://www.linkedin.com/in/owaiz-mustafa-khan-13681b320/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        <a href="https://x.com/Owaiz_Khan_" class="twitter"><i class="bi bi-twitter"></i></a>
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm" href="https://drive.google.com/file/d/1fE4XcYJgDor86niN0ARNIahe79JWHqxX/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <i class="ri-file-text-line" aria-hidden="true"></i> Résumé
+        </a>
+        <a class="btn btn--primary btn--sm" href="#contact">Get in touch</a>
+        <button class="themer" type="button" id="themer" aria-label="Switch theme" title="Switch theme" aria-pressed="false">
+          <i class="ri-moon-line" aria-hidden="true"></i>
+          <i class="ri-sun-line" aria-hidden="true"></i>
+        </button>
+        <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="sheet">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
     </div>
-  </header><!-- End Header -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Learn more about me</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>Software Engineer</h3>
-          <p class="fst-italic">
-            Passionate Software Engineer building scalable, AI-driven solutions that transform business ideas into powerful digital
-            experiences. With hands-on expertise in FastAPI, Spring Boot, Node.js, and emerging AI technologies, I craft robust
-            microservices, APIs, and cross-platform applications that deliver measurable results.
-          </p>
-          <p class="fst-italic">
-            From optimizing database performance at Rockwell Automation to exploring Generative AI and LLMs, I bridge cutting-edge
-            technology with real-world business needs. Ready to bring innovation, technical excellence, and collaborative leadership
-            to your next project.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>28 March 2003</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="https://CyKrome007.github.io" target="_blank">https://CyKrome007.github.io</a> </span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 73269 77069</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Berhampur, Odisha</span></li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>22</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.Tech</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><a href="mailto:OwaizKhan1111@gmail.com"></a>OwaizKhan1111@gmail.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-              </ul>
-            </div>
-          </div>
-          <!--
-          <p>
-            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-          </p>
-          -->
-        </div>
-      </div>
-
-    </div><!-- End About Me -->
-
-    - ->
-
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">HTML <i class="val">100%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">CSS <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">JavaScript <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">React <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Tailwind CSS <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Java <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Maven <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">MySql <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Jenkins <i class="val">60%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Tomcat <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div><!-- End Skills -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-price-tag-2-line" style="color: #ffbb2c;"></i>
-            <h3>BlockChain</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-            <h3>Data Analytics</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-fingerprint-line" style="color: #e361ff;"></i>
-            <h3>Cybersecurity</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-database-2-line" style="color: #47aeff;"></i>
-            <h3>Database Management Systems</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-gamepad-line" style="color: #4233ff;"></i>
-            <h3>Gaming</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-game-line" style="color: #b2904f;"></i>
-            <h3>Game Development</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-disc-line" style="color: #b20969;"></i>
-            <h3>Music</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line" style="color: #29cc61;"></i>
-            <h3>Graphics Design</h3>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End Interests -->
-
-  </section><!-- End About Section -->
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>Software Engineer</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-
-          <h3 class="resume-title">Summary</h3>
-          <div class="resume-item pb-0">
-            <h4>Owaiz Mustafa Khan</h4>
-            <p><em>
-              Enthusiastic and detail-oriented Backend Developer having strong problem-solving skills and continuous
-              learning mindset with hands-on experience in building and deploying RESTful APIs using FastAPI, Express, Spring Boot etc.
-              Proficient in designing scalable backend solutions, managing databases, and integrating third-party services.
-              Strong foundational understanding of software development principles and methodologies, API design, and data modelling.
-            </em></p>
-            <p>
-              <ul>
-                <li>Berhampur, Odisha, In</li>
-                <li>+91 73269 77069</li>
-                <li>OwaizKhan1111@gmail.com</li>
-              </ul>
-            </p>
-          </div>
-
-          <h3 class="resume-title">Project</h3>
-          <div class="resume-item">
-            <h4>Train Ticket Reservation System</h4>
-            <h5>March 2024 - Present</h5>
-            <!-- <p><em>Experion, New York, NY </em></p> -->
-            <p>
-            <ul>
-              <li>A Complete Railway Booking & Status Checking WebApplication</li>
-              <li>Tools Used:
-                <Ul>
-                  <li>Java</li>
-                  <li>HTML & CSS</li>
-                  <li>MySQL</li>
-                  <li>Maven</li>
-                  <li>Java Servlets</li>
-                </Ul>
-              </li>
-            <!--
-              <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-              <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-            -->
-            </ul>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>B.Tech - Computer Science &amp; Engineering</h4>
-            <h5>2021 - 2025</h5>
-            <p><em>NIST University, Palur Hills, Berhampur, Odisha, IN</em></p>
-            <ul>
-              <!--
-              <li>B.Tech</li>
-              <li>Computer Science and Engineering</li>
-              <li>December 2021 - Present</li>
-              -->
-              <li>CGPA: 8.26</li>
-            </ul>
-
-
-          </div>
-          <div class="resume-item">
-            <h4>Intermediate - CBSE</h4>
-            <h5>2019 - 2021</h5>
-            <p><em>Sankalp Senior Secondary School, Ralaba, Odisha, IN</em></p>
-            <ul>
-              <li>Percentage: 75.8%</li>
-            </ul>
-          </div>
-          <div class="resume-item">
-            <h4>Matriculation - ICSE</h4>
-            <h5>2009 - 2019</h5>
-            <p><em>St. Vincent's Convent School, Berhampur, Odisha, IN</em></p>
-            <ul>
-              <li>Percentage: 83.6%</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Resume Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>My Services</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Works</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">React Native</li>
-<!--            <li data-filter=".filter-card">Card</li>-->
-            <li data-filter=".filter-card">Servlet</li>
-<!--            <li data-filter=".filter-web">Web</li>-->
-            <li data-filter=".filter-web">MERN</li>
-            <li data-filter=".filter-web">Spring Boot</li>
-            <li data-filter=".filter-web">FastAPI</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-  <!-- End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Berhampur, Odisha, India</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://x.com/Owaiz_Khan_" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="https://github.com/CyKrome007" class="facebook"><i class="bi bi-github"></i></a>
-<!--              <a href="https://www.instagram.com/0waiz.khan/" class="instagram"><i class="bi bi-instagram"></i></a>-->
-<!--              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>-->
-              <a href="www.linkedin.com/in/owaiz-khan-13681b320" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>OwaizKhan1111@gmail.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Call Me</h3>
-            <p>+91 7326977069</p>
-          </div>
-        </div>
-      </div>
-
-      <form id="contact-form" action="https://formspree.io/f/movabwdy" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
-
-    </div>
-  </section><!-- End Contact Section -->
-
-  <div class="credits">
-    Designed by <a href="https://CyKrome007.github.io/">Owaiz Mustafa Khan</a>
+    <div class="nav__prog" aria-hidden="true"><span id="nav-prog"></span></div>
+  </header>
+
+  <div class="sheet" id="sheet">
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn--primary" href="https://drive.google.com/file/d/1fE4XcYJgDor86niN0ARNIahe79JWHqxX/view?usp=sharing" target="_blank" rel="noopener noreferrer">View résumé</a>
+    <a class="btn btn--ghost" href="#contact">Get in touch</a>
   </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <main id="main">
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- ===== hero ===== -->
+    <section class="hero">
 
+      <div class="wrap hero__in">
+        <span class="avail rv"><span class="avail__dot" aria-hidden="true"></span> Open to backend &amp; platform roles</span>
+
+        <h1 class="rv" data-d="1">I build backend systems that hold up in production.</h1>
+
+        <p class="hero__role rv" data-d="1">
+          <strong>Software Development Engineer 1</strong> at
+          <a href="#experience">ZöTok.AI</a>, Hyderabad, India
+        </p>
+
+        <p class="lede rv" data-d="2">
+          Experience in conversational-commerce and AI voice systems: production agent workflows in
+          Node.js, TypeScript and NestJS, message-queue architecture that survives partial failure,
+          and real-time WebRTC audio pipelines. Previously backend engineering at Rockwell Automation.
+        </p>
+
+        <div class="hero__cta rv" data-d="2">
+          <a class="btn btn--primary" href="https://drive.google.com/file/d/1fE4XcYJgDor86niN0ARNIahe79JWHqxX/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="ri-external-link-line" aria-hidden="true"></i> View résumé
+          </a>
+          <a class="btn btn--ghost" href="mailto:OwaizKhan1111@gmail.com">
+            <i class="ri-mail-line" aria-hidden="true"></i> OwaizKhan1111@gmail.com
+          </a>
+        </div>
+
+        <p class="hero__meta rv" data-d="2">
+          <span><i class="ri-map-pin-line" aria-hidden="true"></i> Hyderabad, Telangana</span>
+          <span><i class="ri-briefcase-line" aria-hidden="true"></i> 1+ year in production</span>
+          <span><i class="ri-github-line" aria-hidden="true"></i> <a href="https://github.com/Vulc4n-007" target="_blank" rel="noopener">Vulc4n-007</a></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== outcomes ===== -->
+    <section class="section section--outcomes">
+      <div class="wrap">
+        <div class="outcomes">
+          <div class="outcome rv">
+            <div class="outcome__n data"><span data-count="10">10</span>&times;</div>
+            <p class="outcome__t">Message throughput</p>
+            <p class="outcome__d">Replaced a single-message SQS flow with 6 ActiveMQ/STOMP workers and 10 concurrent consumers.</p>
+          </div>
+          <div class="outcome rv" data-d="1">
+            <div class="outcome__n data"><span data-count="10">10</span>s &rarr; <span data-count="2">2</span>s</div>
+            <p class="outcome__t">Voice-agent turn latency</p>
+            <p class="outcome__d">An 80% reduction, via a LiveKit and WebRTC audio bridge with Azure Speech STT/TTS.</p>
+          </div>
+          <div class="outcome rv" data-d="2">
+            <div class="outcome__n data"><span data-count="2.3" data-dec="1">2.3</span>&ndash;<span data-count="2.7" data-dec="1">2.7</span>&times;</div>
+            <p class="outcome__t">Daily orders, Haldiram campaign</p>
+            <p class="outcome__d">Deployed voice campaign lifted daily orders from 15 to 35&ndash;40.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== experience ===== -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head rv">
+          <h2>Experience</h2>
+          <p>Production backend work, with the outcomes attached.</p>
+        </div>
+
+        <article class="job rv">
+          <div>
+            <p class="job__when data">Sep 2025 – Present</p>
+            <span class="job__chip job__chip--now">Current</span>
+          </div>
+          <div>
+            <div class="job__co">
+              <h3>ZöTok.AI</h3>
+              <span class="job__where">Hyderabad, India · Full-time · On-site</span>
+            </div>
+            <p class="job__title">Software Development Engineer 1</p>
+            <ul>
+              <li>Built <b>4 production AI-agent workflows</b> in Node.js, TypeScript and NestJS covering order, support, payment and campaigns: modular services, dependency injection, middleware, validated DTOs and authenticated REST APIs.</li>
+              <li>Owned integrations with WhatsApp providers, Typebot, LiveKit and Azure Speech, handling webhook delivery, pagination, rate limits, token expiry and changing external payload contracts.</li>
+              <li>Replaced IntelliBot's single-message SQS flow with <b>6 ActiveMQ/STOMP workers and 10 consumers</b>, increasing capacity <b class="win">10×</b>. Bounded concurrency provided backpressure, while idempotent handlers, client acknowledgements, redelivery and FIFO ordering protected jobs that failed halfway.</li>
+              <li>Built migration and audit tooling for configurable bot modules, preserving workspace settings, variables and workflow bindings across schema changes.</li>
+              <li>Engineered a LiveKit and WebRTC audio bridge with Azure Speech STT/TTS, cutting voice-agent turn latency from 10 seconds to 2, an <b class="win">80% reduction</b>.</li>
+              <li>Deployed the Haldiram voice campaign, increasing daily orders from 15 to 35–40, a <b class="win">2.3–2.7× lift</b>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job rv">
+          <div>
+            <p class="job__when data">Feb 2025 – Aug 2025</p>
+            <span class="job__chip">Internship</span>
+          </div>
+          <div>
+            <div class="job__co">
+              <h3>Rockwell Automation India</h3>
+              <span class="job__where">Bengaluru, India · On-site</span>
+            </div>
+            <p class="job__title">Software Engineer Intern, Backend Development</p>
+            <ul>
+              <li>Collaborated with a 5-member team to translate client requirements into a FastAPI microservice for processing external requests.</li>
+              <li>Delivered enhancements and defect fixes across <b>8 microservices</b> and 1 internal package, resolving <b>20+ tickets</b> covering response correctness and code optimization.</li>
+              <li>Profiled PostgreSQL and MongoDB query patterns for FTDM and authored targeted index-management scripts with SQLAlchemy, Psycopg2 and PyMongo, reducing query times by <b class="win">25%</b>.</li>
+              <li>Increased automated test coverage from 24% to <b class="win">67%</b> by adding unit and integration tests with pytest.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== work ===== -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head rv">
+          <h2>Selected work</h2>
+          <p>One project, covered properly. More source on GitHub.</p>
+        </div>
+
+        <div class="proj rv">
+          <div>
+            <div class="proj__head">
+              <h3>Chibuzur</h3>
+              <span class="proj__when data">Sep 2024 – Dec 2024</span>
+            </div>
+            <p>
+              A real-time chat platform on the MERN stack, supporting direct and group messaging,
+              online presence, typing indicators, live message alerts and persistent conversation
+              history through Socket.IO and MongoDB.
+            </p>
+            <div class="proj__links">
+              <a class="btn btn--ghost btn--sm" href="https://github.com/Vulc4n-007/Chibuzur" target="_blank" rel="noopener">
+                <i class="ri-github-line" aria-hidden="true"></i> View repository
+              </a>
+              <a class="btn btn--ghost btn--sm" href="https://chibuzur.vercel.app/" target="_blank" rel="noopener">
+                <i class="ri-external-link-line" aria-hidden="true"></i> Try Project
+              </a>
+            </div>
+          </div>
+          <div>
+            <ul>
+              <li>Secured Express and Socket.IO endpoints with JWT cookie authentication, bcrypt password hashing, role-protected admin middleware and request validation.</li>
+              <li>Implemented group lifecycle and social workflows covering member management, friend requests, user search, notifications, profile updates and Cloudinary-backed file attachments.</li>
+              <li>Created admin APIs for inspecting users, chats and messages, aggregating platform totals and seven-day messaging activity with Mongoose queries.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== skills ===== -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head rv">
+          <h2>Technical skills</h2>
+          <p>Grouped by what they do, taken straight from the résumé.</p>
+        </div>
+
+        <div class="rv">
+          <div class="skillrow">
+            <p class="skillrow__k">Backend &amp; APIs</p>
+            <div class="tags">
+              <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">Express.js</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">Microservices</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">Messaging &amp; workers</p>
+            <div class="tags">
+              <span class="tag">ActiveMQ</span><span class="tag">STOMP</span><span class="tag">Amazon SQS</span><span class="tag">Redis</span><span class="tag">Queue/Worker architecture</span><span class="tag">Concurrent consumers</span><span class="tag">FIFO ordering</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">Databases</p>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">SQL</span><span class="tag">SQLAlchemy</span><span class="tag">Psycopg2</span><span class="tag">PyMongo</span><span class="tag">Index optimization</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">AI &amp; real-time systems</p>
+            <div class="tags">
+              <span class="tag">LiveKit Agents SDK</span><span class="tag">LiveKit</span><span class="tag">WebRTC</span><span class="tag">Azure Speech STT/TTS</span><span class="tag">LLM tool execution</span><span class="tag">Socket.IO</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">Cloud &amp; DevOps</p>
+            <div class="tags">
+              <span class="tag">AWS (EC2, S3)</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitLab</span><span class="tag">Azure</span><span class="tag">GCP</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">Languages &amp; testing</p>
+            <div class="tags">
+              <span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">Jest</span><span class="tag">pytest</span><span class="tag">Unit testing</span><span class="tag">Integration testing</span>
+            </div>
+          </div>
+          <div class="skillrow">
+            <p class="skillrow__k">Project &amp; collaboration</p>
+            <div class="tags">
+              <span class="tag">Plane</span><span class="tag">Jira</span><span class="tag">Trello</span><span class="tag">GitHub Projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== background ===== -->
+    <section class="section" id="background">
+      <div class="wrap">
+        <div class="section-head rv">
+          <h2>Background</h2>
+        </div>
+
+        <div class="twoup rv">
+          <div>
+            <h3>Education</h3>
+            <div class="entry">
+              <h4>B.Tech, Computer Science &amp; Engineering</h4>
+              <p class="entry__sub">NIST University, Berhampur, India</p>
+              <p class="entry__meta data">2021 – 2025 · CGPA 8.26 / 10.0</p>
+            </div>
+          </div>
+
+          <div>
+            <h3>Leadership</h3>
+            <div class="entry">
+              <h4>Technical Lead, Club Multimedia, NIST University</h4>
+              <p class="entry__meta data">2022 – 2025</p>
+              <p>Directed projects across four disciplines: game development, 3D modeling, animation and media production, guiding contributors from concept through delivery.</p>
+            </div>
+            <div class="entry">
+              <h4>Full Stack Lead, Google Developer Groups on Campus, NIST</h4>
+              <p class="entry__meta data">2024 – 2025</p>
+              <p>Coordinated ten full-stack developer meetups with campus organizations, fostering collaboration among 150+ aspiring engineers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== contact ===== -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head rv">
+          <h2>Get in touch</h2>
+          <p>Open to backend and platform engineering roles. I reply to everything.</p>
+        </div>
+
+        <div class="contact">
+          <div class="rv">
+            <div class="chan">
+              <i class="ri-mail-line" aria-hidden="true"></i>
+              <div><p class="chan__k">Email</p><p class="chan__v"><a href="mailto:OwaizKhan1111@gmail.com">OwaizKhan1111@gmail.com</a></p></div>
+            </div>
+            <div class="chan">
+              <i class="ri-phone-line" aria-hidden="true"></i>
+              <div><p class="chan__k">Phone</p><p class="chan__v"><a href="tel:+917326977069">+91 73269 77069</a></p></div>
+            </div>
+            <div class="chan">
+              <i class="ri-map-pin-line" aria-hidden="true"></i>
+              <div><p class="chan__k">Location</p><p class="chan__v">Hyderabad, Telangana, India</p></div>
+            </div>
+            <div class="chan">
+              <i class="ri-linkedin-line" aria-hidden="true"></i>
+              <div><p class="chan__k">LinkedIn</p><p class="chan__v"><a href="https://www.linkedin.com/in/owaiz-mustafa-khan/" target="_blank" rel="noopener">owaiz-mustafa-khan</a></p></div>
+            </div>
+            <div class="chan">
+              <i class="ri-github-line" aria-hidden="true"></i>
+              <div><p class="chan__k">GitHub</p><p class="chan__v"><a href="https://github.com/Vulc4n-007" target="_blank" rel="noopener">Vulc4n-007</a></p></div>
+            </div>
+          </div>
+
+          <form class="form rv" id="contact-form" action="https://formspree.io/f/movabwdy" method="post">
+            <div class="form__row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Role, project, or question" required>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="A few lines about what you're working on." required></textarea>
+            </div>
+            <div class="form__foot">
+              <p class="form__note" role="status" aria-live="polite"></p>
+              <button type="submit" class="btn btn--primary">
+                <i class="ri-send-plane-line" aria-hidden="true"></i> Send message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="foot">
+      <small>© <span id="year">2026</span> Owaiz Mustafa Khan</small>
+      <div class="social">
+        <a href="https://github.com/Vulc4n-007" target="_blank" rel="noopener" aria-label="GitHub"><i class="ri-github-line" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/owaiz-mustafa-khan/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-line" aria-hidden="true"></i></a>
+        <a href="https://x.com/Owaiz_Khan_" target="_blank" rel="noopener" aria-label="X"><i class="ri-twitter-x-line" aria-hidden="true"></i></a>
+        <a href="mailto:OwaizKhan1111@gmail.com" aria-label="Email"><i class="ri-mail-line" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js?v=26" defer></script>
+  <script type="module" src="assets/js/scene.js?v=15"></script>
 </body>
 
 </html>
