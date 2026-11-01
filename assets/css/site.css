@@ -410,6 +410,7 @@ p  { text-wrap: pretty; }
 .proj li { position: relative; padding-left: 1.25rem; color: var(--ink-2); }
 .proj li::before { content: ''; position: absolute; left: 0; top: 0.6875em; width: 6px; height: 1px; background: var(--muted); }
 .proj__links { display: flex; gap: 0.625rem; margin-top: 1.75rem; }
+.proj + .proj { margin-top: clamp(2rem, 4vw, 3rem); padding-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
 
 /* ---------- skills ---------- */
 .skillrow { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: clamp(1rem, 3vw, 2.5rem); padding-block: 1.25rem; border-top: 1px solid var(--line-soft); align-items: start; }
