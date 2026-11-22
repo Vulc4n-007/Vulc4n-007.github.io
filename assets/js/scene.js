@@ -136,13 +136,27 @@ function boot() {
   /* ---------- input ---------- */
   let px = -1e5, py = -1e5;          /* pointer, in CSS pixels */
   let has = false;
-  if (!coarse) {
-    window.addEventListener('pointermove', (e) => {
-      px = e.clientX; py = e.clientY; has = true;
-    }, { passive: true });
-    document.addEventListener('mouseleave', () => { has = false; });
-    window.addEventListener('blur', () => { has = false; });
-  }
+  /* mouse and pen; touch is handled below, because a swipe that turns into a
+     scroll fires pointercancel and stops sending pointermove */
+  window.addEventListener('pointermove', (e) => {
+    if (e.pointerType === 'touch') return;
+    px = e.clientX; py = e.clientY; has = true;
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => { has = false; });
+  window.addEventListener('blur', () => { has = false; });
+
+  /* touch: the finger pushes the field while it is down, including mid-scroll,
+     and the points spring back when it lifts */
+  const onTouch = (e) => {
+    const t = e.touches[0];
+    if (!t) return;
+    px = t.clientX; py = t.clientY; has = true;
+  };
+  const offTouch = (e) => { if (e.touches.length === 0) has = false; };
+  window.addEventListener('touchstart', onTouch, { passive: true });
+  window.addEventListener('touchmove', onTouch, { passive: true });
+  window.addEventListener('touchend', offTouch, { passive: true });
+  window.addEventListener('touchcancel', offTouch, { passive: true });
 
   let scrollP = 0;
   const onScroll = () => {
@@ -154,11 +168,14 @@ function boot() {
 
   let W = 0, H = 0;
   function resize() {
+    const widthChanged = window.innerWidth !== W;
     W = window.innerWidth; H = window.innerHeight;
     renderer.setSize(W, H, false);
     camera.aspect = W / H;
     camera.updateProjectionMatrix();
-    seed();
+    /* mobile address bars change the height on every scroll; only a real
+       width change (rotation, window resize) re-lays the field */
+    if (widthChanged) seed();
   }
   window.addEventListener('resize', resize);
   resize();
